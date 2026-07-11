@@ -423,9 +423,9 @@ See the **LICENSE** file for more details.
 
 # 👨‍💻 Author
 
-**Muchoki David**
+**Sudhanshu Shekhar**
 
-GitHub: https://github.com/MuchokiDavid
+GitHub: https://github.com/rishabh-dubey-8769/
 
 ---
 
