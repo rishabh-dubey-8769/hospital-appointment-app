@@ -134,5 +134,5 @@ npm run dev
 ## Author
 
 **Dipanjan Das**
-📩 dipanjandas2758@gmail.com
-🔗 [GitHub](https://github.com/DipanjanDas27) · [LinkedIn](https://www.linkedin.com/in/dipanjan-das-65b023290/)
+📩 sudhanshu.shekhar192005@gmail.com
+🔗 [GitHub](https://github.com/rishabh-dubey-8769/) · [LinkedIn](https://www.linkedin.com/in/sudhanshu-shekhar-32798328a/)
