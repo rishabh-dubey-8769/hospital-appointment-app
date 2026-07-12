@@ -3,7 +3,7 @@
   <p><strong>A fullstack MERN application with three role-based portals — Patient, Doctor, and Admin — each with a dedicated frontend and shared backend API</strong></p>
 
   <p>
-    <a href="https://patient-gilt.vercel.app" target="_blank">
+    <a href="https://hospital-appointment-app.vercel.app/" target="_blank">
       <img src="https://img.shields.io/badge/Patient%20Portal-Live-brightgreen?style=for-the-badge&logo=vercel" />
     </a>
   </p>
@@ -125,7 +125,7 @@ npm run dev
 
 | Portal | URL |
 |---|---|
-| Patient | [patient-gilt.vercel.app](https://patient-gilt.vercel.app) |
+| Patient | [patient-gilt.vercel.app](https://hospital-appointment-app.vercel.app/) |
 | Doctor | Deploy separately from `/Doctor` folder |
 | Admin | Deploy separately from `/Admin` folder |
 
