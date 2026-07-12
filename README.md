@@ -1,438 +1,138 @@
 <div align="center">
+  <h1>🏥 Hospital Management System</h1>
+  <p><strong>A fullstack MERN application with three role-based portals — Patient, Doctor, and Admin — each with a dedicated frontend and shared backend API</strong></p>
 
-# 🏥 Hospital Appointment App
+  <p>
+    <a href="https://patient-gilt.vercel.app" target="_blank">
+      <img src="https://img.shields.io/badge/Patient%20Portal-Live-brightgreen?style=for-the-badge&logo=vercel" />
+    </a>
+  </p>
 
-### A Modern Full-Stack Hospital Appointment Management System
-
-Effortlessly manage hospital appointments through a secure, fast, and user-friendly web application designed for patients, doctors, and administrators.
-
-<p align="center">
-  <img src="https://img.shields.io/badge/React-18-blue?logo=react" />
-  <img src="https://img.shields.io/badge/Flask-3.x-black?logo=flask" />
-  <img src="https://img.shields.io/badge/Python-3.11-yellow?logo=python" />
-  <img src="https://img.shields.io/badge/PostgreSQL-Database-blue?logo=postgresql" />
-  <img src="https://img.shields.io/badge/SQLite-Development-green?logo=sqlite" />
-  <img src="https://img.shields.io/badge/License-MIT-success" />
-</p>
-
----
-
-### 🌐 Live Demo
-
-Coming Soon 🚀
-
----
-
+  <p>
+    <img src="https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=node.js" />
+    <img src="https://img.shields.io/badge/MongoDB-Mongoose-47A248?style=flat-square&logo=mongodb" />
+    <img src="https://img.shields.io/badge/React-Vite-61DAFB?style=flat-square&logo=react" />
+    <img src="https://img.shields.io/badge/JWT-Auth-000000?style=flat-square&logo=jsonwebtokens" />
+  </p>
 </div>
 
-# 📖 Overview
+---
 
-Hospital Appointment App is a **full-stack web application** built to simplify and digitize the appointment booking process within hospitals and healthcare centers.
+## Overview
 
-The application enables patients to schedule appointments with doctors, while administrators manage appointments, users, and overall hospital operations from a centralized dashboard.
+This is a fullstack hospital management system with three completely separate React frontends — one for patients, one for doctors, and one for admins — all backed by a single Express.js REST API with role-based access control.
 
-Designed with scalability, security, and usability in mind, this application provides an efficient appointment workflow for modern healthcare environments.
+Each role sees a different interface and can only access the endpoints they are authorized for. The backend enforces this at the middleware level using JWT and role verification.
 
 ---
 
-# ✨ Features
-
-## 👨‍⚕️ Patient Module
-
-- Register/Login securely
-- Book appointments
-- View upcoming appointments
-- Cancel appointments
-- Manage personal profile
-- Appointment history
-
----
-
-## 🏥 Appointment Management
-
-- Schedule appointments
-- Update appointments
-- Cancel appointments
-- View appointment history
-- Appointment status tracking
-
----
-
-## 🔐 Authentication
-
-- Secure Login
-- User Registration
-- Session Management
-- Protected Routes
-
----
-
-## 👨‍💼 Admin Dashboard
-
-- Manage appointments
-- Manage users
-- Manage doctors
-- Monitor hospital activities
-- System administration
-
----
-
-## 📢 Notifications
-
-- Appointment reminders
-- Appointment confirmation
-- Appointment updates
-
----
-
-# 🚀 Tech Stack
-
-## Frontend
-
-- React
-- React Router
-- JavaScript (ES6)
-- HTML5
-- CSS3
-- Fetch API
-
----
-
-## Backend
-
-- Flask
-- Flask RESTful
-- Flask Login
-- SQLAlchemy
-
----
-
-## Database
-
-### Development
-
-- SQLite
-
-### Production
-
-- PostgreSQL
-
----
-
-## Deployment
-
-- Render
-
----
-
-# 🏗 Project Architecture
-
+## Architecture
 ```
-                 Client (React)
-
-                        │
-
-              REST API Requests
-
-                        │
-
-                Flask Backend API
-
-                        │
-
-        Authentication & Business Logic
-
-                        │
-
-                 SQLAlchemy ORM
-
-                        │
-
-          SQLite / PostgreSQL Database
+Hospital-Management/
+├── Backend/        # Express.js REST API (shared by all portals)
+├── Frontend/       # Patient portal — Vite + React
+├── Doctor/         # Doctor portal  — Vite + React
+└── Admin/          # Admin portal   — Vite + React
+```
+```
+Patient / Doctor / Admin Frontend
+          ↓
+    Express.js API
+    (JWT + Role Middleware)
+          ↓
+       MongoDB
 ```
 
 ---
 
-# 📂 Project Structure
+## Role Breakdown
 
-```
-hospital-appointment-app
-│
-├── frontend
-│   ├── public
-│   ├── src
-│   ├── package.json
-│   └── ...
-│
-├── backend
-│   ├── app.py
-│   ├── models
-│   ├── routes
-│   ├── migrations
-│   ├── requirements.txt
-│   └── ...
-│
-├── README.md
-└── LICENSE
-```
+### 🧑‍⚕️ Patient
+- Register and login
+- Book appointments with available doctors
+- View appointment history and status
+
+### 👨‍⚕️ Doctor
+- View assigned appointments
+- Update appointment status (accept / complete)
+- Access patient information for their appointments
+
+### 🔐 Admin
+- Manage doctors — add, view, remove
+- View and manage all appointments across the system
+- Full system oversight
 
 ---
 
-# ⚙ Getting Started
+## Tech Stack
 
-## Prerequisites
-
-Before getting started, ensure you have installed:
-
-- Node.js
-- npm
-- Python 3.x
-- pip
-- Git
+| Layer | Technology |
+|---|---|
+| Backend | Node.js, Express.js |
+| Database | MongoDB, Mongoose |
+| Auth | JWT (role-based) |
+| Frontend | React 18, Vite, Tailwind CSS |
+| Deployment | Vercel (frontend) |
 
 ---
 
-# 📥 Installation
+## Key Implementation Details
 
-## Clone Repository
+- **Three separate frontends** — Admin, Doctor, and Patient each have their own Vite + React app pointing to the same backend, keeping role concerns cleanly separated
+- **JWT middleware** — every protected route verifies the token and checks the role before allowing access, preventing cross-role data access
+- **MVC structure** — backend organized into `models/`, `routes/`, `controllers/` for clear separation of concerns
+- **Appointment state machine** — appointments move through defined statuses (pending → accepted → completed) with each role only able to trigger valid transitions
 
+---
+
+## Local Setup
 ```bash
-git clone https://github.com/your-username/hospital-appointment-app.git
+git clone https://github.com/DipanjanDas27/Hospital-Management.git
 ```
 
-Move inside the project
-
+**Backend:**
 ```bash
-cd hospital-appointment-app
-```
-
----
-
-## Install Frontend Dependencies
-
-```bash
-cd frontend
-
+cd Backend
 npm install
+# create .env with MONGO_URI, JWT_SECRET, PORT
+npm run dev
 ```
 
----
-
-## Install Backend Dependencies
-
+**Patient frontend:**
 ```bash
-cd ../backend
-
-pip install -r requirements.txt
+cd Frontend
+npm install
+npm run dev
 ```
 
----
-
-# ▶ Running the Application
-
-## Start Backend
-
+**Doctor frontend:**
 ```bash
-cd backend
-
-python app.py
+cd Doctor
+npm install
+npm run dev
 ```
 
----
-
-## Start Frontend
-
+**Admin frontend:**
 ```bash
-cd frontend
-
-npm start
+cd Admin
+npm install
+npm run dev
 ```
 
 ---
 
-Visit
+## Live Demo
 
-```
-http://localhost:3000
-```
-
----
-
-# 📸 Application Preview
-
-## Home Page
-
-> Add Screenshot Here
+| Portal | URL |
+|---|---|
+| Patient | [patient-gilt.vercel.app](https://patient-gilt.vercel.app) |
+| Doctor | Deploy separately from `/Doctor` folder |
+| Admin | Deploy separately from `/Admin` folder |
 
 ---
 
-## Login
-
-> Add Screenshot Here
-
----
-
-## Appointment Booking
-
-> Add Screenshot Here
-
----
-
-## Dashboard
-
-> Add Screenshot Here
-
----
-
-# 🔐 Authentication Flow
-
-```
-User
-
-↓
-
-Login
-
-↓
-
-Authentication
-
-↓
-
-Generate Session
-
-↓
-
-Protected Routes
-
-↓
-
-Dashboard
-```
-
----
-
-# 🛠 REST API
-
-### User
-
-- Register
-- Login
-- Logout
-- Profile
-
-### Appointment
-
-- Create Appointment
-- Update Appointment
-- Delete Appointment
-- View Appointments
-
-### Admin
-
-- Manage Users
-- Manage Doctors
-- Manage Appointments
-
----
-
-# 🌟 Why This Project?
-
-✔ Clean User Interface
-
-✔ Full-Stack Architecture
-
-✔ RESTful API
-
-✔ Authentication System
-
-✔ Responsive Design
-
-✔ Production Database
-
-✔ Scalable Backend
-
-✔ Modern Development Practices
-
----
-
-# 🚧 Future Improvements
-
-- Email Notifications
-- SMS Notifications
-- Online Payments
-- Video Consultation
-- Doctor Availability Calendar
-- QR Appointment Verification
-- Digital Prescriptions
-- Medical Records
-- Real-Time Queue Tracking
-- AI Appointment Recommendation
-- Push Notifications
-- Multi Hospital Support
-
----
-
-# 🤝 Contributing
-
-Contributions are always welcome!
-
-If you'd like to improve the project:
-
-1. Fork the repository
-2. Create your feature branch
-
-```bash
-git checkout -b feature/AmazingFeature
-```
-
-3. Commit your changes
-
-```bash
-git commit -m "Add Amazing Feature"
-```
-
-4. Push the branch
-
-```bash
-git push origin feature/AmazingFeature
-```
-
-5. Open a Pull Request
-
----
-
-# 🐛 Found a Bug?
-
-Please open an issue describing:
-
-- Bug description
-- Steps to reproduce
-- Expected behavior
-- Screenshots (if applicable)
-
----
-
-# 📄 License
-
-This project is licensed under the **MIT License**.
-
-See the **LICENSE** file for more details.
-
----
-
-# 👨‍💻 Author
-
-**Sudhanshu Shekhar**
-
-GitHub: https://github.com/rishabh-dubey-8769/
-
----
-
-<div align="center">
-
-### ⭐ If you found this project useful, consider giving it a Star!
-
-Made with ❤️ for modern healthcare management.
-
-</div>
+## Author
+
+**Dipanjan Das**
+📩 dipanjandas2758@gmail.com
+🔗 [GitHub](https://github.com/DipanjanDas27) · [LinkedIn](https://www.linkedin.com/in/dipanjan-das-65b023290/)
