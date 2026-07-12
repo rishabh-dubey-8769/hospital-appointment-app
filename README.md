@@ -87,7 +87,7 @@ Patient / Doctor / Admin Frontend
 
 ## Local Setup
 ```bash
-git clone https://github.com/DipanjanDas27/Hospital-Management.git
+git clone https://github.com/rishabh-dubey-8769/hospital-appointment-app.git
 ```
 
 **Backend:**
