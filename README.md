@@ -125,7 +125,7 @@ npm run dev
 
 | Portal | URL |
 |---|---|
-| Patient | [patient-gilt.vercel.app](https://hospital-appointment-app.vercel.app/) |
+| Patient | [Hospital Appointment](https://hospital-appointment-app.vercel.app/) |
 | Doctor | Deploy separately from `/Doctor` folder |
 | Admin | Deploy separately from `/Admin` folder |
 
